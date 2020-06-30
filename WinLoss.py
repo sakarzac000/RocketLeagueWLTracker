@@ -1,16 +1,24 @@
 import os
+import requests
+import myTkinter
 
 class WinLoss:
     def __init__(self):
-
+        if not os.path.exists('winCount.txt'):
             Winfile = open('winCount.txt', 'w+')
             Winfile.write("0")
             Winfile.close()
 
-
+        if not os.path.exists('lossCount.txt'):
             Lossfile = open('lossCount.txt', 'w+')
             Lossfile.write("0")
-            Lossfile.close
+            Lossfile.close()
+
+        if not os.path.exists('steamID64.txt'):
+            steamID64 = open('steamID64.txt', 'w+')
+            steamID64.write("Delete this line and enter your SteamID64")
+            steamID64.close()
+
         
     def addWin(self):
         Winfile = open('winCount.txt', 'r')
@@ -38,7 +46,6 @@ class WinLoss:
         NewLossfile.write(str(NewLosses))
         NewLossfile.close()
 
+myWinLoss = WinLoss()
 
-MyWinLoss = WinLoss()
-MyWinLoss.addWin()
-MyWinLoss.addWin()
+myTkinter.top.mainloop()
